@@ -1,0 +1,10 @@
+@import "/src/styles/mixins";
+
+.header {
+  @include set-position(fixed, auto, 0, auto, 0);
+
+  .headerWrapper {
+    padding: 20px;
+    color: black;
+  }
+}
