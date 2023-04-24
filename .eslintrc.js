@@ -1,8 +1,9 @@
 module.exports = {
   parser: '@typescript-eslint/parser',
-  plugins: [
-    '@typescript-eslint',
-  ],
+  globals: {
+    JSX: true,
+  },
+  plugins: ['@typescript-eslint'],
   extends: [
     'next/core-web-vitals',
     'plugin:@typescript-eslint/eslint-recommended',
@@ -44,5 +45,4 @@ module.exports = {
     'import/order': 'off',
     'newline-after-var': 'error',
   },
-  
 };

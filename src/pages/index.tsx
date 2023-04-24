@@ -1,7 +1,7 @@
 import { Header } from '@/components';
 import Head from 'next/head';
 
-export default function Home() {
+const App = () => {
   return (
     <>
       <Head>
@@ -15,4 +15,6 @@ export default function Home() {
       </main>
     </>
   );
-}
+};
+
+export default App;
