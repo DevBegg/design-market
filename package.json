@@ -1,5 +1,5 @@
 {
-  "name": "design-market",
+  "name": "newster",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -10,6 +10,11 @@
     "prepare": "husky install"
   },
   "dependencies": {
+    "@emotion/react": "^11.10.8",
+    "@emotion/styled": "^11.10.8",
+    "@fontsource/roboto": "^4.5.8",
+    "@mui/material": "^5.12.2",
+    "@mui/styled-engine-sc": "^5.12.0",
     "@types/node": "18.16.0",
     "@types/react": "18.0.38",
     "@types/react-dom": "18.0.11",
@@ -20,6 +25,7 @@
     "normalize.css": "^8.0.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "styled-components": "^5.3.10",
     "typescript": "5.0.4"
   },
   "devDependencies": {

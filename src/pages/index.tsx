@@ -1,3 +1,4 @@
+import { AuthHeader, AuthHero } from '@/components';
 import Head from 'next/head';
 
 const App = () => {
@@ -9,6 +10,10 @@ const App = () => {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
+      <main>
+        <AuthHeader />
+        <AuthHero />
+      </main>
     </>
   );
 };

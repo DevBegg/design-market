@@ -1,0 +1,19 @@
+@import "/src/styles/vars";
+@import "/src/styles/mixins";
+
+.header {
+  .headerWrapper {
+    @include set-flex(row, space-between, center);
+    padding: 20px;
+    color: $main-text-color;
+
+    .headerLogo {
+      font-size: $font-size-xxl;
+    }
+
+    .headerButton {
+      margin: 0 5px;
+      box-shadow: none;
+    }
+  }
+}
