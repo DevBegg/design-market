@@ -1,0 +1,22 @@
+@import "/src/styles/vars";
+@import "/src/styles/mixins";
+
+.articleNewsCard {
+
+  h3 {
+    @include set-font($font-size-xl, $main-text-color);
+    margin-bottom: 5px;
+  }
+  
+  .imageWrapper {
+
+    img {
+      max-width: 100%;
+    }
+  }
+
+  p {
+    @include set-font($font-size-md, $main-text-color);
+    margin: 10px 0;
+  }
+}

@@ -1,0 +1,14 @@
+@import "/src/styles/vars";
+
+.articleVisitButton {
+  display: block;
+  border-radius: 3px;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  text-align: center;
+
+  a {
+    font-size: $font-size-sm;
+    text-transform: uppercase;
+    padding: 10px 0;
+  }
+}

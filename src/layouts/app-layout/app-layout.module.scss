@@ -12,5 +12,11 @@
       border-bottom: 1px solid $border-default-color;
       height: 56px;
     }
+
+    .appLayoutContent {
+      padding: 20px 0;
+      max-width: 800px;
+      margin: 0 auto;
+    }
   }
 }
