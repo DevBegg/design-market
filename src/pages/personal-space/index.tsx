@@ -1,4 +1,4 @@
-import { AppLayout } from '@/layouts/app-layout/app-layout';
+import { AppLayout } from '@/layouts';
 
 const PersonalSpace = () => {
   return (
