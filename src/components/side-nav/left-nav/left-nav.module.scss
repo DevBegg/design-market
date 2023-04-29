@@ -1,0 +1,16 @@
+@import "/src/styles/mixins";
+
+.leftNav {
+  @include set-position(fixed, 0);
+  @include set-flex(column, space-between);
+  @include set-size(48px, 100%);
+  border-right: 1px solid;
+  z-index: 501;
+  background-color: #fff;
+  border-right-color: #efefef;
+  padding: 0.5rem 0 1rem;
+
+  .leftNavProfile {
+    @include set-flex(row, center);
+  }
+}

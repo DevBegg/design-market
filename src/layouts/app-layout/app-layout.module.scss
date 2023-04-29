@@ -1,0 +1,16 @@
+@import "/src/styles/vars";
+@import "/src/styles/mixins";
+
+.appLayout {
+  height: 100vh;
+
+  .appLayoutContainer {
+    padding-left: 48px;
+    height: 100%;
+    
+    .appLayoutBar {
+      border-bottom: 1px solid $border-default-color;
+      height: 56px;
+    }
+  }
+}

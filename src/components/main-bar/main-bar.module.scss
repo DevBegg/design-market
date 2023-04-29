@@ -1,0 +1,13 @@
+@import "/src/styles/vars";
+@import "/src/styles/mixins";
+
+.mainBar {
+  @include set-flex(column, center, center);
+  border-bottom: 1px solid $border-default-color;
+  height: 56px;
+  z-index: 497;
+
+  .mainBarWrapper {
+    @include set-font($font-size-xl, $main-text-color, 700);
+  }
+}
