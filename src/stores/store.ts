@@ -1,10 +1,10 @@
 import { configureStore } from '@reduxjs/toolkit';
-import counterReducer from './auth-store/auth-store';
+import layoutReducer from './layout-slice/layout-slice';
 // ...
 
 export const store = configureStore({
   reducer: {
-    counter: counterReducer,
+    layout: layoutReducer,
   },
 });
 

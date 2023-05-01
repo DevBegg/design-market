@@ -2,11 +2,15 @@ import { Avatar, ToggleButton } from '@mui/material';
 import ViewHeadlineIcon from '@mui/icons-material/ViewHeadline';
 import styles from './left-nav.module.scss';
 
-export const LeftNav = () => {
+interface LeftNavProps {
+  onToggleButtonClick: () => void;
+}
+
+export const LeftNav = ({ onToggleButtonClick }: LeftNavProps) => {
   return (
     <nav className={styles.leftNav}>
       <div>
-        <ToggleButton value="list" aria-label="list">
+        <ToggleButton value="list" aria-label="list" onClick={onToggleButtonClick}>
           <ViewHeadlineIcon />
         </ToggleButton>
       </div>
