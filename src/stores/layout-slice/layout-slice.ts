@@ -1,5 +1,4 @@
 import { createSlice } from '@reduxjs/toolkit';
-import type { PayloadAction } from '@reduxjs/toolkit';
 import { RootState } from '../store';
 
 export interface Layout {
@@ -17,14 +16,14 @@ export const layoutSlice = createSlice({
     toggleNavigation: (state) => {
       state.isNavExpanded = !state.isNavExpanded;
     },
-    incrementByAmount: (state, action: PayloadAction<boolean>) => {
-      state.isNavExpanded = action.payload;
+    setNavigationExpanded: (state) => {
+      state.isNavExpanded = true;
     },
   },
 });
 
 // Action creators are generated for each case reducer function
-export const { toggleNavigation, incrementByAmount } = layoutSlice.actions;
+export const { toggleNavigation, setNavigationExpanded } = layoutSlice.actions;
 
 export const layoutSelector = (state: RootState) => state.layout;
 

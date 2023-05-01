@@ -10,7 +10,11 @@ export const LeftNav = ({ onToggleButtonClick }: LeftNavProps) => {
   return (
     <nav className={styles.leftNav}>
       <div>
-        <ToggleButton value="list" aria-label="list" onClick={onToggleButtonClick}>
+        <ToggleButton
+          className={styles.leftNavToggleBtn}
+          value="list"
+          aria-label="list"
+          onClick={onToggleButtonClick}>
           <ViewHeadlineIcon />
         </ToggleButton>
       </div>

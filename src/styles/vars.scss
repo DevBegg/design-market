@@ -22,10 +22,19 @@ $font-size-sm: 12px;
 $font-weight-base: 500;
 $font-weight-semibold: 600;
 
+$nav-width: 270px;
+$left-nav-width: 48px;
+
 /* ----- */
-/* colors */
+/* colors*/
 /* ----- */
 
 $main-text-color: #333;
 $secondary-text-color: #757575;
 $border-default-color: rgba(0,0,0, 0.1);
+
+/* ------------ */
+/* transitions  */
+/* -------------*/
+
+$nav-cubic-bezier-transition: transform .25s cubic-bezier(0.694, 0.0482, 0.335, 1);

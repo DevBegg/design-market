@@ -1,9 +1,10 @@
+@import "/src/styles/vars";
 @import "/src/styles/mixins";
 
 .leftNav {
   @include set-position(fixed, 0);
   @include set-flex(column, space-between);
-  @include set-size(48px, 100%);
+  @include set-size($left-nav-width, 100%);
   border-right: 1px solid;
   z-index: 501;
   background-color: #fff;
@@ -12,5 +13,9 @@
 
   .leftNavProfile {
     @include set-flex(row, center);
+  }
+
+  .leftNavToggleBtn {
+    border: none;
   }
 }

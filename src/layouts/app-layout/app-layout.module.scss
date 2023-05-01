@@ -16,14 +16,14 @@
     .appLayoutContent {
       position: relative;
       padding: 20px 0;
-      margin-left: 48px;
+      margin-left: $left-nav-width;
       height: 100%;
-      transition: transform .25s cubic-bezier(0.694, 0.0482, 0.335, 1);
+      transition: $nav-cubic-bezier-transition;
       background-color: white;
     }
     
     .appLayoutContentNavClosed {
-      transform: translateX(270px);
+      transform: translateX($nav-width);
     }
   }
 }
