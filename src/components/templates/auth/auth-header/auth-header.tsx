@@ -11,7 +11,7 @@ export const AuthHeader = () => {
         <div className={styles.headerLogo}>{ApplicationName}</div>
         <div className={styles.headerActions}>
           <Button className={styles.headerButton} variant="outlined" size="small">
-            <Link href="/personal-space">Login</Link>
+            <Link href="/auth">Login</Link>
           </Button>
           <Button className={styles.headerButton} variant="contained" size="small">
             <Link href="/personal-space">Get Started</Link>

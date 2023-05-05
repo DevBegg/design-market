@@ -1,0 +1,25 @@
+@import "/src/styles/vars";
+@import "/src/styles/mixins";
+
+.signupFormRoot {
+  max-width: 320px;
+  margin: 0 auto;
+
+  .signupFormContent {
+
+    h3 {
+      text-align: center;
+      margin-bottom: 10px;
+    }
+
+    .signupForm {
+      @include set-flex(column);
+      max-width: 300px;
+      margin: 0 auto;
+      
+      .signupFormInput {
+        margin-bottom: 10px;
+      }
+    }
+  }
+}

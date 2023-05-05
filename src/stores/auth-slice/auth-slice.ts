@@ -1,34 +1,34 @@
+import { AuthSignupForm } from '@/types';
 import { createSlice } from '@reduxjs/toolkit';
 import type { PayloadAction } from '@reduxjs/toolkit';
-// import { RootState } from '../store';
+import { RootState } from '../store';
 
 export interface CounterState {
-  value: number;
+  signUpForm: AuthSignupForm;
 }
 
 const initialState: CounterState = {
-  value: 0,
+  signUpForm: {
+    email: '',
+    firstName: '',
+    lastName: '',
+    password: '',
+  },
 };
 
-export const counterSlice = createSlice({
-  name: 'counter',
+export const authSlice = createSlice({
+  name: 'authSlice',
   initialState,
   reducers: {
-    increment: (state) => {
-      state.value += 1;
-    },
-    decrement: (state) => {
-      state.value -= 1;
-    },
-    incrementByAmount: (state, action: PayloadAction<number>) => {
-      state.value += action.payload;
+    updateSignUpForm: (state, action: PayloadAction<Partial<AuthSignupForm>>) => {
+      state.signUpForm = { ...state.signUpForm, ...action.payload };
     },
   },
 });
 
 // Action creators are generated for each case reducer function
-export const { increment, decrement, incrementByAmount } = counterSlice.actions;
+export const { actions } = authSlice;
 
-// export const useAuthSelector = (state: RootState) => state.counter;
+export const authSelector = (state: RootState) => state.authSlice;
 
-export default counterSlice.reducer;
+export default authSlice.reducer;
