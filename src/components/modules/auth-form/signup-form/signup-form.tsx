@@ -4,10 +4,12 @@ import styles from './signup-form.module.scss';
 import { AuthSignupForm } from '@/types';
 import { useSelector, useDispatch } from 'react-redux';
 import { authSelector, actions as authSliceActions } from '@/stores/auth-slice/auth-slice';
+import { useUserSignUpMutation } from '@/stores/api/auth-api';
 
 export const SignupForm = () => {
   const { signUpForm } = useSelector(authSelector);
   const { updateSignUpForm } = authSliceActions;
+  const [userSignUp] = useUserSignUpMutation();
   const dispatch = useDispatch();
 
   const handleUpdateForm = (fieldName: keyof AuthSignupForm, value: string) => {
@@ -16,6 +18,15 @@ export const SignupForm = () => {
         [fieldName]: value,
       }),
     );
+  };
+
+  const handleSubmitSignup = () => {
+    //TODO: provide validation
+    const allFieldsFilled = Object.values(signUpForm).every((field) => field.legth > 3);
+
+    if (!allFieldsFilled) {
+      userSignUp(signUpForm);
+    }
   };
 
   return (
@@ -64,7 +75,11 @@ export const SignupForm = () => {
             }
           />
           <div>
-            <Button className={styles.authButton} variant="contained" size="small">
+            <Button
+              className={styles.authButton}
+              onClick={handleSubmitSignup}
+              variant="contained"
+              size="small">
               Get Started
             </Button>
           </div>
