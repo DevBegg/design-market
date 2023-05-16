@@ -11,10 +11,10 @@ export const AuthHeader = () => {
         <div className={styles.headerLogo}>{ApplicationName}</div>
         <div className={styles.headerActions}>
           <Button className={styles.headerButton} variant="outlined" size="small">
-            <Link href="/auth">Login</Link>
+            <Link href={{ pathname: '/auth', query: { action: 'signin' } }}>Login</Link>
           </Button>
           <Button className={styles.headerButton} variant="contained" size="small">
-            <Link href="/personal-space">Get Started</Link>
+            <Link href={{ pathname: '/auth', query: { action: 'signup' } }}>Get Started</Link>
           </Button>
         </div>
       </div>

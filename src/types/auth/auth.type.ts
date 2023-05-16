@@ -4,3 +4,7 @@ export interface AuthSignupForm {
   lastName: string;
   password: string;
 }
+export interface AuthSigninForm {
+  email: string;
+  password: string;
+}

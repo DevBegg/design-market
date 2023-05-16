@@ -1,4 +1,4 @@
-import { AuthSignupForm } from '@/types';
+import { AuthSignupForm, AuthSigninForm } from '@/types';
 import { api } from './api';
 
 export const authApi = api.injectEndpoints({
@@ -11,7 +11,15 @@ export const authApi = api.injectEndpoints({
       }),
       // transformResponse: (response: { data: any }) => response.data,
     }),
+    userSignIn: build.mutation<any, AuthSigninForm>({
+      query: (body) => ({
+        url: 'auth/signin',
+        method: 'POST',
+        body,
+      }),
+    }),
   }),
+  overrideExisting: true,
 });
 
-export const { useUserSignUpMutation } = authApi;
+export const { useUserSignUpMutation, useUserSignInMutation } = authApi;

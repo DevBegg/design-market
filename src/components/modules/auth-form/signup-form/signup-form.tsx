@@ -6,7 +6,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { authSelector, actions as authSliceActions } from '@/stores/auth-slice/auth-slice';
 import { useUserSignUpMutation } from '@/stores/api/auth-api';
 
-export const SignupForm = () => {
+export const SignUpForm = () => {
   const { signUpForm } = useSelector(authSelector);
   const { updateSignUpForm } = authSliceActions;
   const [userSignUp] = useUserSignUpMutation();

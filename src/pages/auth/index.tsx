@@ -1,12 +1,13 @@
+import { AuthForm } from '@/components';
 import styles from './auth.module.scss';
-import { SimpleContainer, SignupForm } from '@/components';
+import { SimpleContainer } from '@/components';
 
 const AuthPage = () => {
   return (
     <main className={styles.authPage}>
       <SimpleContainer>
         <div className={styles.authPageForm}>
-          <SignupForm />
+          <AuthForm />
         </div>
       </SimpleContainer>
     </main>
