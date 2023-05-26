@@ -12,6 +12,7 @@ import createEmotionCache from '../mui-config/create-emotion-cache';
 import { store } from '../stores/store';
 import { Provider } from 'react-redux';
 import { NotificationToast } from '@/components';
+import { SessionProvider } from 'next-auth/react';
 
 // Client-side cache, shared for the whole session of the user in the browser.
 const clientSideEmotionCache = createEmotionCache();
@@ -21,7 +22,11 @@ interface MyAppProps extends AppProps {
 }
 
 export default function MyApp(props: MyAppProps) {
-  const { Component, emotionCache = clientSideEmotionCache, pageProps } = props;
+  const {
+    Component,
+    emotionCache = clientSideEmotionCache,
+    pageProps: { session, ...pageProps },
+  } = props;
 
   return (
     <Provider store={store}>
@@ -31,7 +36,9 @@ export default function MyApp(props: MyAppProps) {
         </Head>
         <ThemeProvider theme={theme}>
           <CssBaseline />
-          <Component {...pageProps} />
+          <SessionProvider session={session}>
+            <Component {...pageProps} />
+          </SessionProvider>
           <NotificationToast />
         </ThemeProvider>
       </CacheProvider>

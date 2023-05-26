@@ -1,23 +1,23 @@
 @import "/src/styles/vars";
 @import "/src/styles/mixins";
 
-.signupFormRoot {
+.card {
   max-width: 320px;
   margin: 0 auto;
 
-  .signupFormContent {
+  .cardContent {
 
     h3 {
       text-align: center;
       margin-bottom: 10px;
     }
 
-    .signupForm {
+    .formBox {
       @include set-flex(column);
       max-width: 300px;
       margin: 0 auto;
       
-      .signupFormInput {
+      .input {
         margin-bottom: 10px;
       }
     }

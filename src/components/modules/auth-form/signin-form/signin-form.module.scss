@@ -1,24 +1,46 @@
 @import "/src/styles/vars";
 @import "/src/styles/mixins";
 
-.signinFormRoot {
-  max-width: 320px;
+.card {
+  min-width: 350px;
   margin: 0 auto;
 
-  .signinFormContent {
+  .cardContent {
+    padding: 20px;
 
-    h3 {
+    .title {
       text-align: center;
-      margin-bottom: 10px;
+      margin-bottom: 15px;
+      font-weight: 400;
+
+      span {
+        color: $theme-main-color;
+      }
     }
 
-    .signinForm {
+    .formBox {
       @include set-flex(column);
-      max-width: 300px;
       margin: 0 auto;
       
-      .signinFormInput {
-        margin-bottom: 10px;
+      .input {
+        margin-bottom: 15px;
+      }
+
+      .buttons {
+        
+        .button {
+          width: 100%;
+          margin-bottom: 10px;
+        }
+
+        .inline {
+          font-size: 14px;
+          text-align: center;
+
+          a {
+            font-weight: 700;
+          }
+        }
       }
     }
   }

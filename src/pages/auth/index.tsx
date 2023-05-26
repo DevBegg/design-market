@@ -1,17 +1,22 @@
-import { AuthForm } from '@/components';
+import { SignInForm, SignUpForm } from '@/components';
 import styles from './auth.module.scss';
-import { SimpleContainer } from '@/components';
+import { useRouter } from 'next/router';
 
-const AuthPage = () => {
+export default function AuthPage() {
+  const {
+    query: { action },
+  } = useRouter();
+
+  const isSignUp = action === 'signup';
+
   return (
-    <main className={styles.authPage}>
-      <SimpleContainer>
-        <div className={styles.authPageForm}>
-          <AuthForm />
+    <main className={styles.root}>
+      <div className={styles.wrapper}>
+        <div className={styles.imageContainer}>
+          <div className={styles.image} />
         </div>
-      </SimpleContainer>
+        <div className={styles.content}>{isSignUp ? <SignUpForm /> : <SignInForm />}</div>
+      </div>
     </main>
   );
-};
-
-export default AuthPage;
+}

@@ -2,21 +2,16 @@ import React, { useState } from 'react';
 import { CardContent, Box, Card, TextField, Button } from '@mui/material';
 import styles from './signin-form.module.scss';
 import { AuthSigninForm } from '@/types';
-import { useDispatch } from 'react-redux';
-import { actions as authSliceActions } from '@/stores/auth-slice/auth-slice';
-import { useUserSignInMutation } from '@/stores/api/auth-api';
-import { useRouter } from 'next/router';
+import { signIn } from 'next-auth/react';
+import { ApplicationName } from '@/constants';
+import GoogleIcon from '@mui/icons-material/Google';
+import Link from 'next/link';
 
 export const SignInForm = () => {
   const [signInForm, setSignInForm] = useState<AuthSigninForm>({
-    email: 'yaroslavfomink@gmail.com',
-    password: '12345678',
+    email: '',
+    password: '',
   });
-
-  const [userSignIn] = useUserSignInMutation();
-  const { setCredentials } = authSliceActions;
-  const dispatch = useDispatch();
-  const router = useRouter();
 
   const handleUpdateForm = (fieldName: keyof AuthSigninForm, value: string) => {
     setSignInForm((prevState) => ({
@@ -26,26 +21,24 @@ export const SignInForm = () => {
   };
 
   const handleSubmitSignup = async () => {
-    //TODO: provide validation
-    try {
-      const { data } = await userSignIn(signInForm).unwrap();
+    alert('Regular sign in process to be developed');
+  };
 
-      dispatch(setCredentials({ ...data }));
-      router.push('/personal-space');
-    } catch (e) {
-      console.log(e);
-    }
+  const handleSubmitGoogleAuth = async () => {
+    signIn('google', { callbackUrl: 'http://localhost:3000/personal-space' });
   };
 
   return (
-    <Card className={styles.signinFormRoot}>
-      <CardContent className={styles.signinFormContent}>
-        <h3>Sign Up</h3>
-        <Box className={styles.signinForm} component="form" noValidate autoComplete="off">
+    <Card className={styles.card}>
+      <CardContent className={styles.cardContent}>
+        <h3 className={styles.title}>
+          Welcome to <span>{ApplicationName}</span>
+        </h3>
+        <Box className={styles.formBox} component="form" noValidate autoComplete="off">
           <TextField
             required
-            label="Email Address"
-            className={styles.signinFormInput}
+            label="Email"
+            className={styles.input}
             size="small"
             value={signInForm.email}
             onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
@@ -55,21 +48,34 @@ export const SignInForm = () => {
           <TextField
             required
             label="Password"
-            className={styles.signinFormInput}
+            className={styles.input}
             size="small"
             value={signInForm.password}
             onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
               handleUpdateForm('password', e.target.value)
             }
           />
-          <div>
+          <div className={styles.buttons}>
             <Button
-              className={styles.authButton}
+              className={styles.button}
               onClick={handleSubmitSignup}
-              variant="contained"
+              variant="outlined"
               size="small">
               Get Started
             </Button>
+            <Button
+              className={styles.button}
+              onClick={handleSubmitGoogleAuth}
+              variant="contained"
+              size="small"
+              startIcon={<GoogleIcon />}>
+              Sign in with Google
+            </Button>
+            <div className={styles.inline}>
+              {/* eslint-disable-next-line react/no-unescaped-entities */}
+              Don't have a Newster account?{' '}
+              <Link href={{ pathname: '/auth', query: { action: 'signup' } }}>Sign Up</Link>
+            </div>
           </div>
         </Box>
       </CardContent>

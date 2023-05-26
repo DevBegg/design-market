@@ -1,8 +1,31 @@
-.authPage {
-  background-color: white;
+@import "/src/styles/vars";
+@import "/src/styles/mixins";
+
+.root {
   height: 100vh;
 
-  .authPageForm {
-    padding: 50px 0;
+  .wrapper {
+    @include set-flex();
+    height: 100%;
+
+    .imageContainer {
+      flex: 0 1 40%;
+      background-image: url('/images/newspapers-stack.jpg');
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      
+      .image {
+        background-color: $theme-main-color;
+        height: 100%;
+        width: 100%;
+        filter: opacity(0.7);
+      }
+    }
+
+    .content {
+      flex: 0 1 60%;
+      @include set-flex(column, center);
+    }
   }
 }

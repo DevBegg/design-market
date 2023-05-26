@@ -32,14 +32,14 @@ export const SignUpForm = () => {
   };
 
   return (
-    <Card className={styles.signupFormRoot}>
-      <CardContent className={styles.signupFormContent}>
+    <Card className={styles.card}>
+      <CardContent className={styles.cardContent}>
         <h3>Sign Up</h3>
-        <Box className={styles.signupForm} component="form" noValidate autoComplete="off">
+        <Box className={styles.formBox} component="form" noValidate autoComplete="off">
           <TextField
             required
             label="Email Address"
-            className={styles.signupFormInput}
+            className={styles.input}
             size="small"
             value={signUpForm.email}
             onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
@@ -49,7 +49,7 @@ export const SignUpForm = () => {
           <TextField
             required
             label="First Name"
-            className={styles.signupFormInput}
+            className={styles.input}
             size="small"
             value={signUpForm.firstName}
             onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
@@ -59,7 +59,7 @@ export const SignUpForm = () => {
           <TextField
             required
             label="Last Name"
-            className={styles.signupFormInput}
+            className={styles.input}
             size="small"
             value={signUpForm.lastName}
             onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
@@ -69,7 +69,7 @@ export const SignUpForm = () => {
           <TextField
             required
             label="Password"
-            className={styles.signupFormInput}
+            className={styles.input}
             size="small"
             value={signUpForm.password}
             onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
@@ -78,7 +78,7 @@ export const SignUpForm = () => {
           />
           <div>
             <Button
-              className={styles.authButton}
+              className={styles.button}
               onClick={handleSubmitSignup}
               variant="contained"
               size="small">
