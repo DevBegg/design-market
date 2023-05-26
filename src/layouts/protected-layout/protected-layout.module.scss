@@ -1,19 +1,14 @@
 @import "/src/styles/vars";
 @import "/src/styles/mixins";
 
-.appLayout {
+.root {
 
-  .appLayoutContainer {
+  .container {
     display: flex;
     flex-direction: column;
     height: 100vh;
-    
-    .appLayoutBar {
-      border-bottom: 1px solid $border-default-color;
-      height: 56px;
-    }
 
-    .appLayoutContent {
+    .content {
       position: relative;
       padding: 20px 0;
       margin-left: $left-nav-width;
@@ -22,7 +17,7 @@
       background-color: white;
     }
     
-    .appLayoutContentNavClosed {
+    .contentNavClosed {
       transform: translateX($nav-width);
     }
   }

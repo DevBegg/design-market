@@ -20,3 +20,5 @@ export default function AuthPage() {
     </main>
   );
 }
+
+//TODO: redirect from auth page if authed

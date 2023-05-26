@@ -1,6 +1,6 @@
 import { Logout, Settings } from '@mui/icons-material';
 import { Divider, ListItemIcon, MenuItem } from '@mui/material';
-import Link from 'next/link';
+import { signOut } from 'next-auth/react';
 
 export const AvatarMenuList = () => {
   const handleClose = () => {
@@ -16,13 +16,11 @@ export const AvatarMenuList = () => {
         Settings
       </MenuItem>
       <Divider />
-      <MenuItem>
-        <Link href="/">
-          <ListItemIcon>
-            <Logout fontSize="small" />
-          </ListItemIcon>
-          Logout
-        </Link>
+      <MenuItem onClick={() => signOut()}>
+        <ListItemIcon>
+          <Logout fontSize="small" />
+        </ListItemIcon>
+        Logout
       </MenuItem>
     </>
   );

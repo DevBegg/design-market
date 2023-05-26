@@ -1,5 +1,7 @@
 import { ArticleNewsCard } from '@/components';
-import { AppLayout } from '@/layouts';
+import { ProtectedLayout } from '@/layouts';
+import { authOptions } from '../../pages/api/auth/[...nextauth]';
+import { getServerSession } from 'next-auth/next';
 
 // temporary stuff
 interface SingleNews {
@@ -26,9 +28,9 @@ const SingleNewsMockObject: SingleNews[] = [
   },
 ];
 
-const PersonalSpace = () => {
+export default function PersonalSpace() {
   return (
-    <AppLayout>
+    <ProtectedLayout>
       <div>
         {SingleNewsMockObject.map((item) => (
           <ArticleNewsCard
@@ -39,8 +41,25 @@ const PersonalSpace = () => {
           />
         ))}
       </div>
-    </AppLayout>
+    </ProtectedLayout>
   );
-};
+}
 
-export default PersonalSpace;
+export async function getServerSideProps({ req, res }) {
+  const session = await getServerSession(req, res, authOptions);
+
+  if (!session) {
+    return {
+      redirect: {
+        destination: '/auth?action=signin',
+        permanent: false,
+      },
+    };
+  }
+
+  return {
+    props: {
+      session,
+    },
+  };
+}
