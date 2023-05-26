@@ -2,6 +2,7 @@ import { ArticleNewsCard } from '@/components';
 import { ProtectedLayout } from '@/layouts';
 import { authOptions } from '../../pages/api/auth/[...nextauth]';
 import { getServerSession } from 'next-auth/next';
+import type { GetServerSidePropsContext } from 'next';
 
 // temporary stuff
 interface SingleNews {
@@ -45,7 +46,7 @@ export default function PersonalSpace() {
   );
 }
 
-export async function getServerSideProps({ req, res }) {
+export async function getServerSideProps({ req, res }: GetServerSidePropsContext) {
   const session = await getServerSession(req, res, authOptions);
 
   if (!session) {

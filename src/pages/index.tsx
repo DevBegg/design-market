@@ -1,8 +1,12 @@
 import { AuthHeader, AuthHero } from '@/components';
 import { ApplicationName } from '@/constants';
 import Head from 'next/head';
+import type { GetServerSidePropsContext } from 'next';
+import { getServerSession } from 'next-auth/next';
+import { authOptions } from '../pages/api/auth/[...nextauth]';
+import { getProviders } from 'next-auth/react';
 
-const App = () => {
+export default function App() {
   return (
     <>
       <Head>
@@ -17,6 +21,18 @@ const App = () => {
       </main>
     </>
   );
-};
+}
 
-export default App;
+export async function getServerSideProps(context: GetServerSidePropsContext) {
+  const session = await getServerSession(context.req, context.res, authOptions);
+
+  if (session) {
+    return { redirect: { destination: '/personal-space' } };
+  }
+
+  const providers = await getProviders();
+
+  return {
+    props: { providers: providers ?? [] },
+  };
+}
