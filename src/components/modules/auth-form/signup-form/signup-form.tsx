@@ -20,12 +20,14 @@ export const SignUpForm = () => {
     );
   };
 
-  const handleSubmitSignup = () => {
+  const handleSubmitSignup = async () => {
     //TODO: provide validation
-    const allFieldsFilled = Object.values(signUpForm).every((field) => field.legth > 3);
+    try {
+      const { data } = await userSignUp(signUpForm).unwrap();
 
-    if (!allFieldsFilled) {
-      userSignUp(signUpForm);
+      console.log(data);
+    } catch (error) {
+      console.log(error);
     }
   };
 

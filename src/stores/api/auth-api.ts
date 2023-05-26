@@ -3,7 +3,7 @@ import { api } from './api';
 
 export const authApi = api.injectEndpoints({
   endpoints: (build) => ({
-    userSignUp: build.mutation<void, AuthSignupForm>({
+    userSignUp: build.mutation<any, AuthSignupForm>({
       query: (body) => ({
         url: 'auth/signup',
         method: 'POST',
