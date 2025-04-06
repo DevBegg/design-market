@@ -10,16 +10,14 @@ interface LeftNavProps {
 
 export const LeftNav = ({ onToggleButtonClick }: LeftNavProps) => {
   return (
-    <nav className={styles.leftNav}>
-      <div>
-        <ToggleButton
-          className={styles.leftNavToggleBtn}
-          value="list"
-          aria-label="list"
-          onClick={onToggleButtonClick}>
-          <ViewHeadlineIcon />
-        </ToggleButton>
-      </div>
+    <nav className={styles.root}>
+      <ToggleButton
+        className={styles.leftNavToggleBtn}
+        value="list"
+        aria-label="list"
+        onClick={onToggleButtonClick}>
+        <ViewHeadlineIcon />
+      </ToggleButton>
       <div></div>
       <div className={styles.leftNavProfile}>
         <PopoverMenu

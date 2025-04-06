@@ -1,0 +1,15 @@
+.feedActionIcons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  margin: 16px 0;
+}
+
+
+.feedViewButtonGroup {
+  padding-right: 8px;
+
+  .feedViewButtonLabel {
+    margin: 0;
+  }
+}

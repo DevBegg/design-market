@@ -1,7 +1,7 @@
 @import "/src/styles/vars";
 @import "/src/styles/mixins";
 
-.leftNav {
+.root {
   @include set-position(fixed, 0);
   @include set-flex(column, space-between);
   @include set-size($left-nav-width, 100%);

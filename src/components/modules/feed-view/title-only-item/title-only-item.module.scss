@@ -1,0 +1,12 @@
+@import '/src/styles/vars.scss';
+@import '/src/styles/mixins.scss';
+
+.root {
+  border-top: 1px solid $border-default-color;
+  border-bottom: 1px solid $border-default-color;
+  padding: 5px 0;
+}
+
+.title {
+  @include set-font($font-size-md, $main-text-color, $font-weight-semibold);
+}

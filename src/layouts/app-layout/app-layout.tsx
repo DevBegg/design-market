@@ -1,4 +1,4 @@
-import { MainBar, SideNav, SimpleContainer } from '@/components';
+import { SideNav, SimpleContainer } from '@/components';
 import { clsx } from 'clsx';
 import styles from './app-layout.module.scss';
 import { useSelector } from 'react-redux';
@@ -11,7 +11,6 @@ export const AppLayout = ({ children }: { children: JSX.Element }) => {
     <div className={styles.appLayout}>
       <SideNav />
       <div className={styles.appLayoutContainer}>
-        <MainBar isNavExpanded={isNavExpanded} />
         <div
           className={clsx(styles.appLayoutContent, {
             [styles.appLayoutContentNavClosed]: isNavExpanded,

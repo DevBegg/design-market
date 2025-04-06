@@ -1,10 +1,13 @@
 @import "/src/styles/mixins";
 
 .sideNav {
-  @include set-position(fixed, 0, auto, 0, 0);
-  width: 318px;
+  position: relative;
+  // @include set-position(fixed, 0, auto, 0, 0);
+  // width: 318px;
 
   .sideNavWrapper {
-    @include set-position(absolute, 0, 0, 0, 0);
+    position: relative;
+    height: 100%;
+    //   @include set-position(absolute, 0, 0, 0, 0);
   }
 }

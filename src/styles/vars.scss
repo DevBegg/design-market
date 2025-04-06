@@ -37,4 +37,5 @@ $border-default-color: rgba(0,0,0, 0.1);
 /* transitions  */
 /* -------------*/
 
-$nav-cubic-bezier-transition: transform .25s cubic-bezier(0.694, 0.0482, 0.335, 1);
+$nav-cubic-bezier-transition: left .25s cubic-bezier(0.694, 0.0482, 0.335, 1);
+$nav-cubic-bezier-transition-layout: margin-left .25s cubic-bezier(0.694, 0.0482, 0.335, 1);

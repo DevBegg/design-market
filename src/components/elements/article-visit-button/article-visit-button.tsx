@@ -6,7 +6,7 @@ interface ArticleVisitButtonProps {
 
 export const ArticleVisitButton = ({ text = 'visit website' }: ArticleVisitButtonProps) => {
   return (
-    <div className={styles.articleVisitButton}>
+    <div className={styles.root}>
       <a href="https://google.com">{text}</a>
     </div>
   );

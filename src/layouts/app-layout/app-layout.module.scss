@@ -2,28 +2,34 @@
 @import "/src/styles/mixins";
 
 .appLayout {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  height: 100vh;
+  width: 100%;
 
   .appLayoutContainer {
     display: flex;
     flex-direction: column;
-    height: 100vh;
+    width: 100%;
     
-    .appLayoutBar {
-      border-bottom: 1px solid $border-default-color;
-      height: 56px;
-    }
+    // .appLayoutBar {
+    //   border-bottom: 1px solid $border-default-color;
+    //   height: 56px;
+    // }
 
     .appLayoutContent {
       position: relative;
-      padding: 20px 0;
+      padding: 0 0 20px;
       margin-left: $left-nav-width;
       height: 100%;
-      transition: $nav-cubic-bezier-transition;
+      transition: $nav-cubic-bezier-transition-layout;
       background-color: white;
+      z-index: 1;
     }
     
     .appLayoutContentNavClosed {
-      transform: translateX($nav-width);
+      margin-left: $left-nav-width + $nav-width;
     }
   }
 }

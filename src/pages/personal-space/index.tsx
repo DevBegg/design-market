@@ -1,43 +1,61 @@
 import { ArticleNewsCard } from '@/components';
+import { FeedActionIcons } from '@/components/modules/feed-action-icons';
+import { TitleOnlyItem } from '@/components/modules/feed-view';
+import { SingleNewsMockObject } from '@/constants/mocks';
 import { AppLayout } from '@/layouts';
+import { layoutSelector } from '@/stores/layout-slice/layout-slice';
+import { FeedViewType } from '@/types';
+import { useSelector } from 'react-redux';
 
-// temporary stuff
-interface SingleNews {
-  id: string;
-  title: string;
-  description: string;
-  img: string;
-}
+const ArticleFeedViewContent = () => {
+  const { feedView } = useSelector(layoutSelector);
 
-const SingleNewsMockObject: SingleNews[] = [
-  {
-    id: '1',
-    title: 'DeFi Needs More Than ‘Synthetic High-Yield Products’: Dragonfly’s Haseeb Qureshi',
-    description:
-      'The venture capitalist discusses non-ZIRP monetary policy, rebooting crypto’s market structure and why Ponzi bubbles always burst.',
-    img: 'https://www.coindesk.com/resizer/4ag4GZAIuMxQbod69r2Zb8jBv2c=/800x600/cloudfront-us-east-1.images.arcpublishing.com/coindesk/B6YWYLWOPNBGNMUISPLOWA4DVA.jpg',
-  },
-  {
-    id: '2',
-    title: 'DeFi Needs More Than ‘Synthetic High-Yield Products’: Dragonfly’s Haseeb Qureshi',
-    description:
-      'The venture capitalist discusses non-ZIRP monetary policy, rebooting crypto’s market structure and why Ponzi bubbles always burst.',
-    img: 'https://www.coindesk.com/resizer/4ag4GZAIuMxQbod69r2Zb8jBv2c=/800x600/cloudfront-us-east-1.images.arcpublishing.com/coindesk/B6YWYLWOPNBGNMUISPLOWA4DVA.jpg',
-  },
-];
+  if (feedView !== FeedViewType.Article) {
+    return null;
+  }
+
+  return (
+    <>
+      {SingleNewsMockObject.map((item) => (
+        <ArticleNewsCard
+          key={item.id}
+          title={item.title}
+          description={item.description}
+          img={item.img}
+        />
+      ))}
+    </>
+  );
+};
+
+const TitleOnlyFeedViewContent = () => {
+  const { feedView } = useSelector(layoutSelector);
+
+  if (feedView !== FeedViewType.TitleOnly) {
+    return null;
+  }
+
+  return (
+    <>
+      {SingleNewsMockObject.map((item) => (
+        <TitleOnlyItem
+          key={item.id}
+          title={item.title}
+          description={item.description}
+          img={item.img}
+        />
+      ))}
+    </>
+  );
+};
 
 const PersonalSpace = () => {
   return (
     <AppLayout>
       <div>
-        {SingleNewsMockObject.map((item) => (
-          <ArticleNewsCard
-            key={item.id}
-            title={item.title}
-            description={item.description}
-            img={item.img}
-          />
-        ))}
+        <FeedActionIcons />
+        <ArticleFeedViewContent />
+        <TitleOnlyFeedViewContent />
       </div>
     </AppLayout>
   );

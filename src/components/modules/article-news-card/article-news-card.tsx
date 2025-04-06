@@ -1,5 +1,4 @@
 import { ArticleCard, ArticleVisitButton } from '@/components/elements';
-// import Image from 'next/image';
 import styles from './article-news-card.module.scss';
 
 interface ArticleNewsCardProps {
@@ -11,7 +10,7 @@ interface ArticleNewsCardProps {
 export const ArticleNewsCard = ({ title, description, img }: ArticleNewsCardProps) => {
   return (
     <ArticleCard>
-      <div className={styles.articleNewsCard}>
+      <div className={styles.root}>
         <h3>{title}</h3>
         <div className={styles.imageWrapper}>
           {/* eslint-disable-next-line */}

@@ -1,17 +1,21 @@
 @import "/src/styles/vars";
 @import "/src/styles/mixins";
 
-.articleNewsCard {
-
+.root {
   h3 {
     @include set-font($font-size-xl, $main-text-color);
     margin-bottom: 5px;
+    text-align: center;
   }
   
   .imageWrapper {
-
+    @include set-flex(row, center, center);
+    height: 300px;
+    margin: 15px 0;
     img {
-      max-width: 100%;
+      display: block;
+      height: 100%;
+      margin: 0 auto;
     }
   }
 

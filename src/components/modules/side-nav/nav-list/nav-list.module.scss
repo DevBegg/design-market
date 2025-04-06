@@ -5,13 +5,22 @@
   background-color: #f6f7f8;
   border-right: 1px solid #efefef;
   height: 100%;
-  margin-left: $left-nav-width;
   overflow-x: hidden;
   overflow-y: auto;
   width: $nav-width;
-  position: relative;
+  position: absolute;
+  left: -$nav-width;
+  top: 0;
+  bottom: 0;
+  z-index: 10;
 
+  
   .navPinIcon {
     @include set-position(absolute, auto, 10px, 10px);
   }
+}
+
+.navExpanded {
+  left: $left-nav-width;
+  transition: $nav-cubic-bezier-transition;
 }
