@@ -18,8 +18,14 @@ export const authApi = api.injectEndpoints({
         body,
       }),
     }),
+    getTestRss: build.query<any, void>({
+      query: () => ({
+        url: ' https://api.rss2json.com/v1/api.json?rss_url=https://www.pravda.com.ua/rus/rss/view_news/',
+        method: 'GET',
+      }),
+    }),
   }),
   overrideExisting: true,
 });
 
-export const { useUserSignUpMutation, useUserSignInMutation } = authApi;
+export const { useUserSignUpMutation, useUserSignInMutation, useGetTestRssQuery } = authApi;

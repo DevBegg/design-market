@@ -1,13 +1,13 @@
 import { ArticleNewsCard } from '@/components';
 import { FeedActionIcons } from '@/components/modules/feed-action-icons';
-import { TitleOnlyItem } from '@/components/modules/feed-view';
-import { SingleNewsMockObject } from '@/constants/mocks';
+import { TitleOnlyViewFeed } from '@/components/modules/feed-view';
 import { AppLayout } from '@/layouts';
+import { useGetTestRssQuery } from '@/stores/api';
 import { layoutSelector } from '@/stores/layout-slice/layout-slice';
 import { FeedViewType } from '@/types';
 import { useSelector } from 'react-redux';
 
-const ArticleFeedViewContent = () => {
+const ArticleFeedViewContent = ({ data }) => {
   const { feedView } = useSelector(layoutSelector);
 
   if (feedView !== FeedViewType.Article) {
@@ -16,46 +16,45 @@ const ArticleFeedViewContent = () => {
 
   return (
     <>
-      {SingleNewsMockObject.map((item) => (
+      <FeedActionIcons />
+      {data.items.map((item) => (
         <ArticleNewsCard
           key={item.id}
           title={item.title}
           description={item.description}
-          img={item.img}
+          img={item.img || item.enclosure?.link || ''}
         />
       ))}
     </>
   );
 };
 
-const TitleOnlyFeedViewContent = () => {
+const TitleOnlyFeedViewContent = ({ data }) => {
   const { feedView } = useSelector(layoutSelector);
 
   if (feedView !== FeedViewType.TitleOnly) {
     return null;
   }
 
-  return (
-    <>
-      {SingleNewsMockObject.map((item) => (
-        <TitleOnlyItem
-          key={item.id}
-          title={item.title}
-          description={item.description}
-          img={item.img}
-        />
-      ))}
-    </>
-  );
+  return <TitleOnlyViewFeed data={data} />;
 };
 
 const PersonalSpace = () => {
+  const { data, isLoading } = useGetTestRssQuery();
+
+  if (isLoading) {
+    return (
+      <AppLayout>
+        <p>Loading...</p>
+      </AppLayout>
+    );
+  }
+
   return (
     <AppLayout>
       <div>
-        <FeedActionIcons />
-        <ArticleFeedViewContent />
-        <TitleOnlyFeedViewContent />
+        <ArticleFeedViewContent data={data} />
+        <TitleOnlyFeedViewContent data={data} />
       </div>
     </AppLayout>
   );

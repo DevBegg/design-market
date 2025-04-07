@@ -2,11 +2,37 @@
 @import '/src/styles/mixins.scss';
 
 .root {
+  @include set-flex(row, flex-start, center);
+
   border-top: 1px solid $border-default-color;
   border-bottom: 1px solid $border-default-color;
   padding: 5px 0;
-}
 
-.title {
-  @include set-font($font-size-md, $main-text-color, $font-weight-semibold);
+  .name {
+    width: 120px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    @include set-font($font-size-sm, $secondary-text-color, $font-weight-semibold);
+  }
+
+  .title {
+    @include set-flex(row, flex-start, center);
+    flex: 1;
+    gap: .25rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    @include set-font($font-size-sm, $main-text-color, $font-weight-semibold);
+  }
+
+  .date {
+    color: var(--semanticColorContentLight);
+    min-width: 42px;
+    padding-left: 1rem;
+    padding-right: .5rem;
+    text-align: right;
+    @include set-font($font-size-sm, $secondary-text-color, $font-weight-semibold);
+  }
+
 }

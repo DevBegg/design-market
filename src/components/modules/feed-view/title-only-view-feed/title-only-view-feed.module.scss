@@ -1,0 +1,16 @@
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  
+  .headerLink {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .logo {
+    height: 24px;
+    width: auto;
+  }
+}

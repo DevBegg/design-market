@@ -12,10 +12,12 @@ export const ArticleNewsCard = ({ title, description, img }: ArticleNewsCardProp
     <ArticleCard>
       <div className={styles.root}>
         <h3>{title}</h3>
-        <div className={styles.imageWrapper}>
-          {/* eslint-disable-next-line */}
-          <img src={img} alt="" />
-        </div>
+        {img?.length && (
+          <div className={styles.imageWrapper}>
+            {/* eslint-disable-next-line */}
+            <img src={img} alt="" />
+          </div>
+        )}
         <p>{description}</p>
         <ArticleVisitButton />
       </div>
